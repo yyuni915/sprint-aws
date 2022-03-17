@@ -11,6 +11,8 @@ describe('http - EC2와 S3 설정을 확인합니다.', () => {
 
   it('2. S3에 정적 파일들을 업로드 했다면, "Deployment Practice"가 출력되어야 합니다.', async () => {
     const result = await axios.get(`${process.env.S3_ADDRESS}`);
+
+    //const result = await axios.get('http://www.yyuni.click');
     const title = result.data.includes('Deployment Practice');
     expect(title).to.be.eql(true);
   });
